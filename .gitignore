@@ -1,0 +1,13 @@
+# Hugo
+hugo-site-portfolio/public/
+hugo-site-portfolio/resources/
+hugo-site-portfolio/.hugo_build.lock
+
+# Terraform
+terraform/*.tfstate
+terraform/*.tfstate.backup
+terraform/.terraform/
+terraform/terraform.tfvars
+
+# Mac
+.DS_Store

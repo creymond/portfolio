@@ -1,0 +1,34 @@
+{{ define "main" }}
+<div class="wrap">
+  <div class="page-inner">
+    <canvas id="starfield"></canvas>
+    <div class="vignette"></div>
+    <div class="scanlines"></div>
+
+    {{/* Header with back nav */}}
+    <header class="page-header">
+      <a href="{{ "/" | relURL }}" class="back-link">&lt; Back</a>
+      <h1 class="page-title">{{ .Title }}</h1>
+      <div class="header-spacer"></div>
+    </header>
+
+    {{/* Page content */}}
+    <div class="page-content">
+      {{ .Content }}
+    </div>
+
+    {{/* Footer */}}
+    <footer class="page-footer">
+      <span class="footer-left">built with Hugo // deployed on AWS // may the uptime be with you</span>
+      <div class="footer-right">
+        {{ with .Site.Params.social.github }}
+        <a href="{{ . }}" target="_blank" rel="noopener">GitHub</a>
+        {{ end }}
+        {{ with .Site.Params.social.linkedin }}
+        <a href="{{ . }}" target="_blank" rel="noopener">LinkedIn</a>
+        {{ end }}
+      </div>
+    </footer>
+  </div>
+</div>
+{{ end }}
