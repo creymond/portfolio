@@ -625,3 +625,162 @@ body {
         display: none;
     }
 }
+
+/* ============================================================
+   EXPERIENCE EXPANDABLE CARDS
+   ============================================================ */
+
+.sec-lbl {
+    font-family: "Share Tech Mono", monospace;
+    font-size: 10px;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    margin-bottom: 3px;
+}
+
+.lbl-b {
+    color: #3a6a8a;
+}
+
+.cv-expand {
+    margin-top: 12px;
+}
+
+.cv-item {
+    border: 1px solid rgba(75, 150, 200, 0.08);
+    border-radius: 4px;
+    margin-bottom: 8px;
+    overflow: hidden;
+    transition: border-color 0.2s;
+    cursor: pointer;
+}
+
+.cv-item:hover {
+    border-color: rgba(75, 150, 200, 0.2);
+}
+
+.cv-hdr {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 12px 16px;
+    background: rgba(8, 14, 24, 0.6);
+}
+
+.cv-hdr-left {
+    display: flex;
+    align-items: baseline;
+    gap: 10px;
+    flex-wrap: wrap;
+}
+
+.cv-yr {
+    font-family: "Share Tech Mono", monospace;
+    font-size: 11px;
+    color: #4a7a9a;
+}
+
+.cv-rl {
+    font-family: "Orbitron", sans-serif;
+    font-size: 14px;
+    color: #c8d6e0;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+}
+
+.cv-cp {
+    font-size: 12px;
+    color: #5a7a90;
+}
+
+.cv-arrow {
+    color: #4a6a80;
+    font-family: "Share Tech Mono", monospace;
+    font-size: 14px;
+    transition: transform 0.2s;
+    flex-shrink: 0;
+}
+
+.cv-item.open .cv-arrow {
+    transform: rotate(90deg);
+}
+
+.cv-detail {
+    padding: 0 16px;
+    max-height: 0;
+    overflow: hidden;
+    transition:
+        max-height 0.3s,
+        padding 0.3s;
+}
+
+.cv-item.open .cv-detail {
+    max-height: 400px;
+    padding: 8px 16px 14px;
+}
+
+.cv-detail p {
+    font-size: 13px;
+    color: #7a8fa0;
+    line-height: 1.7;
+    margin-bottom: 8px;
+}
+
+.achv {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    margin-top: 8px;
+    font-family: "Share Tech Mono", monospace;
+    font-size: 11px;
+    color: #5a9a5e;
+}
+
+.achv-i {
+    width: 14px;
+    height: 14px;
+    border: 1px solid #5a9a5e;
+    border-radius: 2px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 9px;
+    flex-shrink: 0;
+}
+
+/* ============================================================
+   UNDER CONSTRUCTION PAGE
+   ============================================================ */
+
+.construction-msg {
+    font-family: "Share Tech Mono", monospace;
+    font-size: 14px;
+    letter-spacing: 4px;
+    color: #c4a000;
+    text-transform: uppercase;
+    margin: 32px 0 12px;
+    animation: blink-msg 2s infinite;
+}
+
+.construction-bracket {
+    color: #25e1ed;
+    font-size: 16px;
+}
+
+.construction-sub {
+    font-family: "Share Tech Mono", monospace;
+    font-size: 11px;
+    color: #3a5a6a;
+    letter-spacing: 2px;
+    margin-bottom: 32px;
+}
+
+@keyframes blink-msg {
+    0%,
+    100% {
+        opacity: 1;
+    }
+    50% {
+        opacity: 0.5;
+    }
+}

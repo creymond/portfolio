@@ -1,72 +1,61 @@
 {{ define "main" }}
 <div class="wrap">
-  <div class="landing">
-    <canvas id="starfield"></canvas>
-    <div class="vignette"></div>
-    <div class="scanlines"></div>
+    <div class="landing">
+        <canvas id="starfield"></canvas>
+        <div class="vignette"></div>
+        <div class="scanlines"></div>
 
-    {{/* HUD corner brackets */}}
-    <div class="corner corner-tl"></div>
-    <div class="corner corner-tr"></div>
-    <div class="corner corner-bl"></div>
-    <div class="corner corner-br"></div>
-    <div class="hud-tag hud-tl">SYS://ONLINE</div>
-    <div class="hud-tag hud-br">V.2077</div>
+        <div class="corner corner-tl"></div>
+        <div class="corner corner-tr"></div>
+        <div class="corner corner-bl"></div>
+        <div class="corner corner-br"></div>
+        <div class="hud-tag hud-tl">SYS://BUILDING</div>
+        <div class="hud-tag hud-br">V.0.1</div>
 
-    <div class="center">
-      <h1 class="name">{{ .Site.Title | replaceRE " —.*" "" }}</h1>
-      <div class="role">{{ .Site.Params.role }}</div>
+        <div class="center">
+            <h1 class="name">Cyril Reymond</h1>
+            <div class="role">DevOps Engineer</div>
 
-      {{/* Social icons */}}
-      <div class="icons">
-        {{ with .Site.Params.social.linkedin }}
-        <a href="{{ . }}" target="_blank" rel="noopener" title="LinkedIn">
-          {{ partial "icons/linkedin.html" . }}
-        </a>
-        {{ end }}
-        {{ with .Site.Params.social.github }}
-        <a href="{{ . }}" target="_blank" rel="noopener" title="GitHub">
-          {{ partial "icons/github.html" . }}
-        </a>
-        {{ end }}
-        {{ with .Site.Params.social.credly }}
-        <a href="{{ . }}" target="_blank" rel="noopener" title="Credly">
-          {{ partial "icons/credly.html" . }}
-        </a>
-        {{ end }}
-        {{ with .Site.Params.social.instagram }}
-        <a href="{{ . }}" target="_blank" rel="noopener" title="Instagram">
-          {{ partial "icons/instagram.html" . }}
-        </a>
-        {{ end }}
-      </div>
+            <div class="construction-msg">
+                <span class="construction-bracket">[</span>
+                site under construction
+                <span class="construction-bracket">]</span>
+            </div>
 
-      {{/* Navigation */}}
-      <nav class="nav-links">
-        {{ range .Site.Menus.main }}
-        <a href="{{ .URL | relURL }}">{{ .Name }}</a>
-        {{ end }}
-      </nav>
+            <div class="construction-sub">
+                Something is being deployed. Check back soon.
+            </div>
 
-      {{/* Language switcher */}}
-      {{ if gt (len .Site.Languages) 1 }}
-      <div class="lang-switch">
-        {{ range .Site.Languages }}
-        {{ if eq .Lang "en" }}
-        <a href="{{ "/" | relURL }}"
-           class="{{ if eq $.Site.Language.Lang .Lang }}active{{ end }}">
-          {{ .LanguageName }}
-        </a>
-        {{ else }}
-        <a href="{{ print "/" .Lang "/" | relURL }}"
-           class="{{ if eq $.Site.Language.Lang .Lang }}active{{ end }}">
-          {{ .LanguageName }}
-        </a>
-        {{ end }}
-        {{ end }}
-      </div>
-      {{ end }}
+            <div class="icons">
+                {{ with .Site.Params.social.linkedin }}
+                <a
+                    href="{{ . }}"
+                    target="_blank"
+                    rel="noopener"
+                    title="LinkedIn"
+                >
+                    {{ partial "icons/linkedin.html" . }}
+                </a>
+                {{ end }} {{ with .Site.Params.social.github }}
+                <a href="{{ . }}" target="_blank" rel="noopener" title="GitHub">
+                    {{ partial "icons/github.html" . }}
+                </a>
+                {{ end }} {{ with .Site.Params.social.credly }}
+                <a href="{{ . }}" target="_blank" rel="noopener" title="Credly">
+                    {{ partial "icons/credly.html" . }}
+                </a>
+                {{ end }} {{ with .Site.Params.social.instagram }}
+                <a
+                    href="{{ . }}"
+                    target="_blank"
+                    rel="noopener"
+                    title="Instagram"
+                >
+                    {{ partial "icons/instagram.html" . }}
+                </a>
+                {{ end }}
+            </div>
+        </div>
     </div>
-  </div>
 </div>
 {{ end }}
