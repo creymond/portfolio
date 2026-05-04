@@ -26,7 +26,7 @@ env:
   S3_BUCKET: ${{ secrets.S3_BUCKET_NAME }}
   CLOUDFRONT_DIST_ID: ${{ secrets.CLOUDFRONT_DISTRIBUTION_ID }}
   AWS_REGION: us-east-1
-  NODE_VERSION: "20"
+  NODE_VERSION: "22"
 
 jobs:
   deploy:
