@@ -11,7 +11,7 @@ export const translations: Record<Lang, Record<string, string>> = {
     'hero.label': 'cyril_reymond --bash',
     'hero.subtitle': 'DevOps Engineer / SRE Engineer @THALES',
     'hero.tagline': 'Specializing in high-availability infrastructure, automating CI/CD pipelines, and infrastructure-as-code at global scale.',
-    'hero.btn_cv': 'DOWNLOAD CV',
+    'hero.btn_cv': 'DOWNLOAD RESUME',
     'hero.btn_projects': 'VIEW PROJECTS',
     'about.label': '/ SYSTEM.BIO',
     'about.bio': "Engineering digital resilience since 2014. My journey began in the trenches of monolithic migrations and evolved into leading cloud-native transformations for enterprise clients. I don't just see infrastructure as a utility, but as a software product that demands the same rigor, testing, and lifecycle management as application code.",
