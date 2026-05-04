@@ -11,7 +11,7 @@ export const translations: Record<Lang, Record<string, string>> = {
     'hero.label': 'cyril_reymond --bash',
     'hero.subtitle': 'DevOps Engineer / SRE Engineer @THALES',
     'hero.tagline': 'Specializing in high-availability infrastructure, automating CI/CD pipelines, and infrastructure-as-code at global scale.',
-    'hero.btn_cv': 'DOWNLOAD CV',
+    'hero.btn_cv': 'DOWNLOAD RESUME',
     'hero.btn_projects': 'VIEW PROJECTS',
     'about.label': '/ SYSTEM.BIO',
     'about.bio': "I'm a DevOps and SRE engineer with three years of experience keeping critical banking infrastructure reliable, secure, and fast. I hold a master's in Artificial Intelligence, and the intersection of AI and infrastructure is where I find the work most interesting. Running models reliably in production is its own engineering problem, closer to SRE than to data science, and that's exactly the kind of problem I like. I work calmly and methodically, and I'm always motivated to learn, reflected in my recent Google Cloud Professional DevOps Engineer certification. Outside of work, I'm an avid student of Japan: its language, its design philosophy, and the quiet discipline of doing one thing well.",
