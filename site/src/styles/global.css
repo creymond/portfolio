@@ -1,0 +1,91 @@
+:root {
+  /* Colors — from DESIGN.md */
+  --color-bg: #11131e;
+  --color-surface-low: #191b26;
+  --color-surface: #1d1f2b;
+  --color-surface-high: #272935;
+  --color-border: #3c4a3c;
+  --color-border-subtle: #1f2130;
+
+  --color-accent: #50fa7b;       /* primary green */
+  --color-accent-dim: #31e368;
+  --color-secondary: #d7baff;    /* purple — nav headers, keywords */
+  --color-tertiary: #ffb86c;     /* orange — strings, data highlights */
+
+  --color-text: #e1e1f1;
+  --color-text-muted: #bbcbb8;
+  --color-text-inverse: #0b0e18;
+
+  /* Typography */
+  --font-heading: 'Space Grotesk', system-ui, sans-serif;
+  --font-body: 'Inter', system-ui, sans-serif;
+  --font-mono: 'JetBrains Mono', 'Fira Code', ui-monospace, monospace;
+
+  /* Spacing (4px unit) */
+  --space-1: 4px;
+  --space-2: 8px;
+  --space-3: 12px;
+  --space-4: 16px;
+  --space-5: 20px;
+  --space-6: 24px;
+  --space-8: 32px;
+  --space-10: 40px;
+  --space-12: 48px;
+  --space-16: 64px;
+  --space-20: 80px;
+  --space-24: 96px;
+
+  /* Nav */
+  --nav-width: 220px;
+
+  /* No border-radius — sharp IDE aesthetic */
+  --radius: 0px;
+}
+
+/* Reset */
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+html { scroll-behavior: smooth; }
+
+body {
+  background-color: var(--color-bg);
+  color: var(--color-text);
+  font-family: var(--font-body);
+  font-size: 16px;
+  line-height: 1.5;
+  -webkit-font-smoothing: antialiased;
+  overflow-x: hidden;
+}
+
+/* Fluid headings */
+h1 { font-family: var(--font-heading); font-size: clamp(2.5rem, 6vw, 4.5rem); font-weight: 700; line-height: 1.1; letter-spacing: -0.02em; }
+h2 { font-family: var(--font-heading); font-size: clamp(1.25rem, 3vw, 2rem); font-weight: 600; line-height: 1.2; letter-spacing: -0.01em; }
+h3 { font-family: var(--font-heading); font-size: 1.25rem; font-weight: 600; line-height: 1.2; }
+
+a { color: inherit; text-decoration: none; }
+
+img, video { max-width: 100%; display: block; }
+
+/* Focus visible */
+:focus-visible { outline: 2px solid var(--color-accent); outline-offset: 2px; }
+
+/* Skip link */
+.skip-link {
+  position: absolute;
+  top: -100%;
+  left: 0;
+  background: var(--color-accent);
+  color: var(--color-text-inverse);
+  padding: var(--space-2) var(--space-4);
+  font-family: var(--font-mono);
+  font-size: 0.875rem;
+  z-index: 9999;
+}
+.skip-link:focus-visible {
+  top: 0;
+}
+
+/* Scrollbar (webkit) */
+::-webkit-scrollbar { width: 6px; }
+::-webkit-scrollbar-track { background: var(--color-bg); }
+::-webkit-scrollbar-thumb { background: var(--color-border); }

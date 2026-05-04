@@ -1,0 +1,340 @@
+---
+---
+
+<nav id="primary-nav" aria-label="Primary navigation">
+  <div class="brand">root / <span>portfolio</span></div>
+
+  <ul role="list">
+    <li>
+      <a href="#hero">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="square" stroke-linejoin="miter" aria-hidden="true"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
+        <span data-i18n="nav.home">HOME</span>
+      </a>
+    </li>
+    <li>
+      <a href="#about">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="square" stroke-linejoin="miter" aria-hidden="true"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+        <span data-i18n="nav.about">ABOUT</span>
+      </a>
+    </li>
+    <li>
+      <a href="#repositories">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="square" stroke-linejoin="miter" aria-hidden="true"><path d="M22 19a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h5l2 3h9a2 2 0 0 1 2 2z"/></svg>
+        <span data-i18n="nav.projects">PROJECTS</span>
+      </a>
+    </li>
+    <li>
+      <a href="#stack">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="square" stroke-linejoin="miter" aria-hidden="true"><polygon points="12 2 2 7 12 12 22 7 12 2"/><polyline points="2 17 12 22 22 17"/><polyline points="2 12 12 17 22 12"/></svg>
+        <span data-i18n="nav.stack">STACK</span>
+      </a>
+    </li>
+    <li>
+      <a href="#experience">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="square" stroke-linejoin="miter" aria-hidden="true"><rect x="2" y="7" width="20" height="14"/><path d="M16 7V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v2"/></svg>
+        <span data-i18n="nav.experience">EXPERIENCE</span>
+      </a>
+    </li>
+    <li>
+      <a href="#contact">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="square" stroke-linejoin="miter" aria-hidden="true"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+        <span data-i18n="nav.contact">CONTACT</span>
+      </a>
+    </li>
+  </ul>
+
+  <div class="lang-switcher">
+    <button class="lang-btn lang-btn--active" data-lang="en" onclick="window.__setLang('en')" aria-label="Switch to English">EN</button>
+    <button class="lang-btn" data-lang="fr" onclick="window.__setLang('fr')" aria-label="Passer en français">FR</button>
+    <button class="lang-btn" data-lang="ja" onclick="window.__setLang('ja')" aria-label="日本語に切り替え">JA</button>
+  </div>
+
+</nav>
+
+<div class="nav-overlay" aria-hidden="true"></div>
+
+<button
+  class="hamburger"
+  aria-label="Open navigation menu"
+  aria-expanded="false"
+  aria-controls="primary-nav"
+>
+  <svg width="18" height="14" viewBox="0 0 18 14" fill="none" aria-hidden="true" focusable="false">
+    <rect y="0"  width="18" height="2" fill="currentColor"/>
+    <rect y="6"  width="18" height="2" fill="currentColor"/>
+    <rect y="12" width="18" height="2" fill="currentColor"/>
+  </svg>
+</button>
+
+<style>
+  nav {
+    position: fixed;
+    left: 0;
+    top: 0;
+    height: 100vh;
+    width: var(--nav-width);
+    background: var(--color-surface);
+    border-right: 1px solid var(--color-border);
+    display: flex;
+    flex-direction: column;
+    padding: var(--space-8) 0 var(--space-6);
+    z-index: 90;
+    overflow-y: auto;
+    transform: translateX(0);
+    transition: transform 0.25s ease;
+  }
+
+  .brand {
+    font-family: var(--font-mono);
+    font-size: 0.75rem;
+    color: var(--color-text);
+    padding: 0 var(--space-6) var(--space-8);
+    letter-spacing: 0.05em;
+  }
+  .brand span {
+    color: var(--color-secondary);
+  }
+
+  ul {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+    flex: 1;
+  }
+
+  ul li a {
+    display: flex;
+    align-items: center;
+    gap: var(--space-3);
+    padding: var(--space-3) var(--space-6);
+    font-family: var(--font-mono);
+    font-size: 0.75rem;
+    letter-spacing: 0.1em;
+    color: var(--color-text-muted);
+    text-decoration: none;
+    border-left: 2px solid transparent;
+    transition: color 0.15s ease, border-color 0.15s ease;
+  }
+
+  ul li a svg {
+    flex-shrink: 0;
+    opacity: 0.6;
+    transition: opacity 0.15s ease;
+  }
+
+  ul li a:hover svg,
+  ul li a:focus-visible svg,
+  ul li a[aria-current="page"] svg {
+    opacity: 1;
+  }
+
+  ul li a:hover,
+  ul li a:focus-visible {
+    color: var(--color-accent);
+    border-left-color: var(--color-accent);
+    outline: none;
+  }
+
+  ul li a[aria-current="page"] {
+    color: var(--color-accent);
+    border-left-color: var(--color-accent);
+  }
+
+  .nav-overlay {
+    display: none;
+    position: fixed;
+    inset: 0;
+    background: rgba(11, 14, 24, 0.75);
+    z-index: 80;
+    opacity: 0;
+    transition: opacity 0.25s ease;
+  }
+
+  .hamburger {
+    display: none;
+    position: fixed;
+    top: var(--space-4);
+    left: var(--space-4);
+    z-index: 100;
+    width: 40px;
+    height: 40px;
+    background: var(--color-surface);
+    border: 1px solid var(--color-border);
+    color: var(--color-text);
+    cursor: pointer;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .hamburger:focus-visible {
+    outline: 2px solid var(--color-accent);
+    outline-offset: 2px;
+  }
+
+  .lang-switcher {
+    padding: var(--space-4) var(--space-6);
+    border-top: 1px solid var(--color-border);
+    margin-top: auto;
+    display: flex;
+    gap: var(--space-2);
+  }
+
+  .lang-btn {
+    flex: 1;
+    font-family: var(--font-mono);
+    font-size: 0.7rem;
+    letter-spacing: 0.08em;
+    color: var(--color-text-muted);
+    background: transparent;
+    border: 1px solid var(--color-border);
+    padding: var(--space-1) 0;
+    cursor: pointer;
+    transition: border-color 0.15s, color 0.15s, background-color 0.15s;
+  }
+
+  .lang-btn:hover {
+    border-color: var(--color-accent);
+    color: var(--color-accent);
+  }
+
+  .lang-btn--active {
+    background: var(--color-accent);
+    border-color: var(--color-accent);
+    color: var(--color-text-inverse);
+  }
+
+  @media (max-width: 767px) {
+    nav {
+      transform: translateX(-100%);
+      z-index: 90;
+    }
+
+    nav.is-open {
+      transform: translateX(0);
+    }
+
+    .nav-overlay {
+      display: block;
+    }
+
+    .nav-overlay.is-open {
+      opacity: 1;
+      pointer-events: auto;
+    }
+
+    .nav-overlay:not(.is-open) {
+      pointer-events: none;
+    }
+
+    .hamburger {
+      display: flex;
+    }
+  }
+</style>
+
+<script>
+  (function () {
+    const nav = document.getElementById('primary-nav') as HTMLElement | null;
+    const hamburger = document.querySelector('.hamburger') as HTMLButtonElement | null;
+    const overlay = document.querySelector('.nav-overlay') as HTMLElement | null;
+
+    if (!nav || !hamburger || !overlay) return;
+
+    function openNav() {
+      nav!.classList.add('is-open');
+      overlay!.classList.add('is-open');
+      hamburger!.setAttribute('aria-expanded', 'true');
+      hamburger!.setAttribute('aria-label', 'Close navigation menu');
+      document.body.style.overflow = 'hidden';
+    }
+
+    function closeNav() {
+      nav!.classList.remove('is-open');
+      overlay!.classList.remove('is-open');
+      hamburger!.setAttribute('aria-expanded', 'false');
+      hamburger!.setAttribute('aria-label', 'Open navigation menu');
+      document.body.style.overflow = '';
+    }
+
+    hamburger.addEventListener('click', () => {
+      const isOpen = nav.classList.contains('is-open');
+      isOpen ? closeNav() : openNav();
+    });
+
+    overlay.addEventListener('click', closeNav);
+
+    nav.querySelectorAll('a[href^="#"]').forEach((link) => {
+      link.addEventListener('click', () => {
+        if (window.innerWidth < 768) closeNav();
+      });
+    });
+
+    const navLinks = nav.querySelectorAll<HTMLAnchorElement>('a[href^="#"]');
+
+    const sectionMap = new Map<string, Element>();
+    navLinks.forEach((link) => {
+      const id = link.getAttribute('href')?.slice(1);
+      if (id) {
+        const section = document.getElementById(id);
+        if (section) sectionMap.set(id, section);
+      }
+    });
+
+    function setActive(id: string | null) {
+      navLinks.forEach((link) => {
+        const linkId = link.getAttribute('href')?.slice(1);
+        if (linkId === id) {
+          link.setAttribute('aria-current', 'page');
+        } else {
+          link.removeAttribute('aria-current');
+        }
+      });
+    }
+
+    if (sectionMap.size > 0) {
+      const visibleSections = new Set<string>();
+
+      const observer = new IntersectionObserver(
+        (entries) => {
+          entries.forEach((entry) => {
+            const id = entry.target.id;
+            if (entry.isIntersecting) {
+              visibleSections.add(id);
+            } else {
+              visibleSections.delete(id);
+            }
+          });
+
+          if (visibleSections.size > 0) {
+            let activeId: string | null = null;
+            navLinks.forEach((link) => {
+              const id = link.getAttribute('href')?.slice(1);
+              if (id && visibleSections.has(id) && activeId === null) {
+                activeId = id;
+              }
+            });
+            setActive(activeId);
+          }
+        },
+        {
+          rootMargin: '-20% 0px -60% 0px',
+          threshold: 0,
+        }
+      );
+
+      sectionMap.forEach((section) => observer.observe(section));
+
+      // The -60% bottom rootMargin prevents the last section from ever triggering
+      const lastLinkId = Array.from(navLinks).at(-1)?.getAttribute('href')?.slice(1) ?? null;
+      window.addEventListener('scroll', () => {
+        const atBottom = window.scrollY + window.innerHeight >= document.documentElement.scrollHeight - 50;
+        if (atBottom && lastLinkId) setActive(lastLinkId);
+      }, { passive: true });
+    } else {
+      if (navLinks.length > 0) {
+        navLinks[0].setAttribute('aria-current', 'page');
+      }
+    }
+  })();
+</script>

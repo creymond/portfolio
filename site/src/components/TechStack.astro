@@ -1,0 +1,228 @@
+---
+interface Skill {
+  name: string;
+  level: number;
+}
+interface Category {
+  i18nKey: string;
+  name: string;
+  iconPath: string;
+  skills: Skill[];
+}
+
+const categories: Category[] = [
+  {
+    i18nKey: 'stack.devops',
+    name: 'DEVOPS + INFRA',
+    iconPath: 'M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z M9 22V12h6v10',
+    skills: [
+      { name: 'Docker',      level: 70 },
+      { name: 'Kubernetes',  level: 70 },
+      { name: 'Ansible',     level: 65 },
+      { name: 'Terraform',   level: 75 },
+      { name: 'Helm',        level: 60 },
+      { name: 'Jenkins',     level: 65 },
+      { name: 'OpenShift',   level: 50 },
+    ],
+  },
+  {
+    i18nKey: 'stack.monitoring',
+    name: 'MONITORING',
+    iconPath: 'M2 12h4l3-9 4 18 3-9h6',
+    skills: [
+      { name: 'Grafana',       level: 85 },
+      { name: 'Kibana',        level: 85 },
+      { name: 'ElasticSearch', level: 80 },
+      { name: 'Dynatrace',     level: 75 },
+      { name: 'Filebeat',      level: 80 },
+      { name: 'Metricbeat',    level: 80 },
+    ],
+  },
+  {
+    i18nKey: 'stack.languages',
+    name: 'LANGUAGES',
+    iconPath: 'M16 18l6-6-6-6 M8 6l-6 6 6 6',
+    skills: [
+      { name: 'Bash',        level: 90 },
+      { name: 'Python',      level: 75 },
+      { name: 'JavaScript',  level: 60 },
+      { name: 'Java',        level: 70 },
+      { name: 'C/C++',       level: 70 },
+    ],
+  },
+  {
+    i18nKey: 'stack.ai_data',
+    name: 'AI + DATA',
+    iconPath: 'M12 2a5 5 0 1 0 0 10 5 5 0 0 0 0-10z M2 20c0-4 4.5-7 10-7s10 3 10 7',
+    skills: [
+      { name: 'TensorFlow',  level: 60 },
+      { name: 'PyTorch',     level: 60 },
+      { name: 'Keras',       level: 60 },
+      { name: 'Hadoop',      level: 80 },
+      { name: 'Spark',       level: 80 },
+      { name: 'MongoDB',     level: 65 },
+      { name: 'SQL',         level: 75 },
+    ],
+  },
+];
+---
+
+<section id="stack" class="tech-stack">
+  <div class="section-label">
+    <h2 data-i18n="stack.label">/ TECH.STACK</h2>
+    <hr />
+  </div>
+
+  <div class="categories">
+    {categories.map((category) => (
+      <div class="category">
+        <h3 class="category-name">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="square" aria-hidden="true">
+            <path d={category.iconPath} />
+          </svg>
+          <span data-i18n={category.i18nKey}>{category.name}</span>
+        </h3>
+
+        <div class="skill-grid">
+          {category.skills.map((skill) => (
+            <div class="skill-card">
+              <div class="skill-header">
+                <span class="skill-name">{skill.name}</span>
+                <span class="skill-pct">{skill.level}%</span>
+              </div>
+              <div
+                class="bar-track"
+                role="progressbar"
+                aria-valuenow={skill.level}
+                aria-valuemin={0}
+                aria-valuemax={100}
+                aria-label={`${skill.name} proficiency`}
+              >
+                <div class="bar-fill" style={`width:${skill.level}%`}></div>
+              </div>
+            </div>
+          ))}
+        </div>
+      </div>
+    ))}
+  </div>
+</section>
+
+<style>
+  .tech-stack {
+    padding: var(--space-12) var(--space-8);
+  }
+
+  @media (max-width: 767px) {
+    .tech-stack {
+      padding: var(--space-8) var(--space-4);
+    }
+  }
+
+  .section-label {
+    display: flex;
+    align-items: center;
+    gap: var(--space-4);
+    margin-bottom: var(--space-8);
+  }
+
+  .section-label h2 {
+    font-family: var(--font-mono);
+    font-size: 1.1rem;
+    font-weight: 600;
+    letter-spacing: 0.08em;
+    color: var(--color-accent);
+    white-space: nowrap;
+    margin: 0;
+  }
+
+  .section-label hr {
+    flex: 1;
+    border: none;
+    border-top: 1px solid var(--color-border);
+  }
+
+  .categories {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-8);
+  }
+
+  .category-name {
+    font-family: var(--font-mono);
+    font-size: 0.7rem;
+    font-weight: 400;
+    letter-spacing: 0.12em;
+    color: var(--color-secondary);
+    display: flex;
+    align-items: center;
+    gap: var(--space-2);
+    margin-bottom: var(--space-4);
+  }
+
+  .category-name svg {
+    flex-shrink: 0;
+    opacity: 0.8;
+  }
+
+  .skill-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: var(--space-3);
+  }
+
+  @media (min-width: 480px) {
+    .skill-grid {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+
+  @media (min-width: 1024px) {
+    .skill-grid {
+      grid-template-columns: repeat(4, 1fr);
+    }
+  }
+
+  .skill-card {
+    background: var(--color-surface);
+    border: 1px solid var(--color-border);
+    padding: var(--space-3);
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-2);
+    transition: border-color 0.15s;
+  }
+
+  .skill-card:hover {
+    border-color: var(--color-accent);
+  }
+
+  .skill-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .skill-name {
+    font-family: var(--font-mono);
+    font-size: 0.75rem;
+    color: var(--color-text);
+  }
+
+  .skill-pct {
+    font-family: var(--font-mono);
+    font-size: 0.7rem;
+    color: var(--color-text-muted);
+  }
+
+  .bar-track {
+    height: 3px;
+    background: var(--color-border);
+    width: 100%;
+  }
+
+  .bar-fill {
+    height: 100%;
+    background: var(--color-accent);
+  }
+</style>

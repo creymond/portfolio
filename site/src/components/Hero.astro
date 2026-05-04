@@ -1,0 +1,190 @@
+---
+import githubIcon from '../assets/icons/github.svg?raw';
+import linkedinIcon from '../assets/icons/linkedin.svg?raw';
+---
+
+<section id="hero" aria-labelledby="hero-heading">
+  <div class="hero-content">
+    <p class="terminal-label" data-i18n="hero.label">cyril_reymond --bash</p>
+
+    <h1 id="hero-heading">CYRIL REYMOND</h1>
+
+    <p class="subtitle" data-i18n="hero.subtitle">DevOps Engineer / SRE Engineer @THALES</p>
+
+    <p class="tagline" data-i18n="hero.tagline">
+      Specializing in high-availability infrastructure, automating CI/CD pipelines,
+      and infrastructure-as-code at global scale.
+    </p>
+
+    <div class="buttons">
+      <a
+        href="/CV_CyrilReymond_EN-2026.pdf"
+        download
+        class="btn btn-primary"
+        data-i18n="hero.btn_cv"
+      >
+        DOWNLOAD CV
+      </a>
+      <a href="#repositories" class="btn btn-secondary" data-i18n="hero.btn_projects">
+        VIEW PROJECTS
+      </a>
+    </div>
+
+    <div class="socials">
+      <a
+        href="https://github.com/creymond"
+        target="_blank"
+        rel="noopener noreferrer"
+        aria-label="GitHub profile"
+        class="social-link"
+      >
+        <span set:html={githubIcon} />
+      </a>
+      <a
+        href="https://www.linkedin.com/in/cyril-reymond/"
+        target="_blank"
+        rel="noopener noreferrer"
+        aria-label="LinkedIn profile"
+        class="social-link"
+      >
+        <span set:html={linkedinIcon} />
+      </a>
+    </div>
+  </div>
+</section>
+
+<style>
+  section {
+    min-height: 100svh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: var(--space-12) var(--space-8);
+    background-color: var(--color-bg);
+  }
+
+  .hero-content {
+    max-width: 600px;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    gap: var(--space-5);
+  }
+
+  .tagline {
+    max-width: 100%;
+  }
+
+  .terminal-label {
+    font-family: var(--font-mono);
+    font-size: 0.75rem;
+    color: var(--color-text-muted);
+    letter-spacing: 0.04em;
+    margin-bottom: calc(var(--space-2) * -1);
+  }
+
+  h1 {
+    color: var(--color-text);
+    text-transform: uppercase;
+  }
+
+  .subtitle {
+    font-family: var(--font-mono);
+    font-size: 1.1rem;
+    color: var(--color-accent);
+    line-height: 1.4;
+  }
+
+  .tagline {
+    font-family: var(--font-body);
+    font-size: 1rem;
+    color: var(--color-text-muted);
+    line-height: 1.6;
+  }
+
+  .buttons {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--space-4);
+    margin-top: var(--space-2);
+  }
+
+  .btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: var(--space-3) var(--space-6);
+    font-family: var(--font-mono);
+    font-size: 0.875rem;
+    font-weight: 600;
+    letter-spacing: 0.06em;
+    border-radius: var(--radius);
+    cursor: pointer;
+    transition: background-color 0.15s ease, color 0.15s ease, border-color 0.15s ease;
+    text-decoration: none;
+  }
+
+  .btn-primary {
+    background-color: var(--color-accent);
+    color: var(--color-text-inverse);
+    border: 1px solid var(--color-accent);
+  }
+
+  .btn-primary:hover,
+  .btn-primary:focus-visible {
+    background-color: transparent;
+    color: var(--color-accent);
+  }
+
+  .btn-secondary {
+    background-color: transparent;
+    color: var(--color-secondary);
+    border: 1px solid var(--color-secondary);
+  }
+
+  .btn-secondary:hover,
+  .btn-secondary:focus-visible {
+    background-color: var(--color-secondary);
+    color: var(--color-text-inverse);
+  }
+
+  /* Override global focus-visible so buttons keep their own outline treatment */
+  .btn:focus-visible {
+    outline: 2px solid var(--color-accent);
+    outline-offset: 2px;
+  }
+
+  .socials {
+    display: flex;
+    align-items: center;
+    gap: var(--space-4);
+  }
+
+  .social-link {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--color-text-muted);
+    transition: color 0.15s ease;
+    line-height: 0;
+  }
+
+  .social-link:hover,
+  .social-link:focus-visible {
+    color: var(--color-accent);
+  }
+
+  .social-link :global(svg) {
+    width: 24px;
+    height: 24px;
+    fill: currentColor;
+  }
+
+  @media (max-width: 767px) {
+    section {
+      padding: calc(var(--space-4) + 56px) var(--space-4) var(--space-12);
+    }
+  }
+</style>
