@@ -1,0 +1,208 @@
+---
+---
+
+<section id="contact" class="contact">
+  <div class="section-label">
+    <h2 data-i18n="contact.label">SSH CONTACT@SERVER.IO</h2>
+    <hr />
+  </div>
+
+  <p class="intro-line" data-i18n="contact.intro">root@cyril_reymond:~$ open connection</p>
+
+  <form
+    class="contact-form"
+    action="mailto:pro.cyril.reymond@gmail.com"
+    method="POST"
+    enctype="text/plain"
+  >
+    <div class="field">
+      <label for="name">
+        <span class="prompt">root@cyril_reymond:~$</span>
+        <span class="label-text" data-i18n="contact.name_label">INPUT NAME</span>
+      </label>
+      <input
+        type="text"
+        id="name"
+        name="name"
+        placeholder="Your name"
+        data-i18n-placeholder="contact.name_ph"
+        autocomplete="name"
+      />
+    </div>
+
+    <div class="field">
+      <label for="email">
+        <span class="prompt">root@cyril_reymond:~$</span>
+        <span class="label-text" data-i18n="contact.email_label">INPUT EMAIL</span>
+      </label>
+      <input
+        type="email"
+        id="email"
+        name="email"
+        placeholder="Your email"
+        data-i18n-placeholder="contact.email_ph"
+        autocomplete="email"
+      />
+    </div>
+
+    <div class="field">
+      <label for="message">
+        <span class="prompt">root@cyril_reymond:~$</span>
+        <span class="label-text" data-i18n="contact.msg_label">INPUT MESSAGE</span>
+      </label>
+      <textarea
+        id="message"
+        name="message"
+        rows="5"
+        placeholder="Your message"
+        data-i18n-placeholder="contact.msg_ph"
+      ></textarea>
+    </div>
+
+    <button type="submit">
+      <span class="prompt-char">&gt;</span> <span data-i18n="contact.submit">SEND TRANSMISSION</span>
+    </button>
+  </form>
+</section>
+
+<style>
+  .contact {
+    padding: var(--space-12) var(--space-8);
+  }
+
+  .section-label {
+    display: flex;
+    align-items: center;
+    gap: var(--space-4);
+    margin-bottom: var(--space-6);
+  }
+
+  .section-label h2 {
+    font-family: var(--font-mono);
+    font-size: 1.1rem;
+    font-weight: 600;
+    letter-spacing: 0.08em;
+    color: var(--color-accent);
+    white-space: nowrap;
+    margin: 0;
+  }
+
+  .section-label hr {
+    flex: 1;
+    border: none;
+    border-top: 1px solid var(--color-border);
+  }
+
+  .intro-line {
+    font-family: var(--font-mono);
+    font-size: 0.8rem;
+    color: var(--color-text-muted);
+    margin-bottom: var(--space-8);
+    max-width: 640px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .contact-form {
+    width: 100%;
+    max-width: 640px;
+    margin-left: auto;
+    margin-right: auto;
+    background: var(--color-surface);
+    border: 1px solid var(--color-border);
+    padding: var(--space-8);
+  }
+
+  .field {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-2);
+    margin-bottom: var(--space-6);
+  }
+
+  label {
+    display: flex;
+    align-items: center;
+    gap: var(--space-3);
+    font-family: var(--font-mono);
+    font-size: 0.7rem;
+  }
+
+  .prompt {
+    color: var(--color-accent);
+  }
+
+  .label-text {
+    color: var(--color-secondary);
+    letter-spacing: 0.08em;
+  }
+
+  input,
+  textarea {
+    background: var(--color-bg);
+    border: 1px solid var(--color-border);
+    color: var(--color-text);
+    font-family: var(--font-mono);
+    /* 16px minimum to prevent iOS auto-zoom */
+    font-size: 1rem;
+    padding: var(--space-3) var(--space-4);
+    width: 100%;
+    border-radius: 0;
+    outline: none;
+    transition: border-color 0.15s;
+    resize: vertical;
+  }
+
+  input:focus,
+  textarea:focus {
+    border-color: var(--color-accent);
+  }
+
+  input::placeholder,
+  textarea::placeholder {
+    color: var(--color-text-muted);
+  }
+
+  button[type="submit"] {
+    display: block;
+    width: 100%;
+    padding: var(--space-4);
+    background: var(--color-accent);
+    color: var(--color-text-inverse);
+    font-family: var(--font-mono);
+    font-size: 1rem;
+    font-weight: 700;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    border: 2px solid var(--color-accent);
+    border-radius: 0;
+    cursor: pointer;
+    transition: background-color 0.15s, color 0.15s;
+  }
+
+  button[type="submit"]:hover {
+    background: transparent;
+    color: var(--color-accent);
+  }
+
+  button[type="submit"]:focus-visible {
+    outline: 2px solid var(--color-accent);
+    outline-offset: 2px;
+  }
+
+  .prompt-char {
+    margin-right: var(--space-1);
+  }
+
+  @media (max-width: 767px) {
+    .contact {
+      padding: var(--space-16) var(--space-4);
+    }
+
+    .contact-form {
+      padding: var(--space-6);
+      max-width: 100%;
+      width: 100%;
+    }
+  }
+</style>

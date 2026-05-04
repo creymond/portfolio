@@ -1,0 +1,247 @@
+---
+interface Entry {
+  title: string;
+  company: string;
+  period: string;
+  location: string;
+  description: string;
+  tags: string[];
+}
+
+const entries: Entry[] = [
+   {
+    title: 'SRE Engineer',
+    company: 'Thales Services Numériques',
+    period: '2026 - ',
+    location: 'Lyon, France',
+    description:
+      'Passed GCP Certification: Professional Cloud DevOps Engineer. Working towards the CKA Certification.',
+    tags: ['Kubernetes', 'GCP'],
+  },
+  {
+    title: 'Gap Year in Japan',
+    company: '',
+    period: '2025 - 2026',
+    location: 'Japan',
+    description:
+      '',
+    tags: ['Language', 'Soft Skills', 'Culture'],
+  },
+  {
+    title: 'SRE Engineer',
+    company: 'Thales Services Numériques / BNP Paribas',
+    period: '2021 – 2024',
+    location: 'Lyon, France',
+    description:
+      'Responsible for RUN activities in a BigData production environment at BNP Paribas bank. Incident management, daily monitoring, script automation, delivery pipeline ownership, and Disaster Recovery exercises. Collaborated with distributed teams across France and India.',
+    tags: ['Kubernetes', 'Hadoop', 'Ansible', 'Jenkins', 'Grafana'],
+  },
+  {
+    title: 'Research Assistant',
+    company: 'National Institute of Informatics',
+    period: 'Mar 2020 – Aug 2020',
+    location: 'Tokyo, Japan',
+    description:
+      'Developed a multi-agent system called Iterated Belief Revision Games. Research in knowledge representation and belief revision within the Inoue Lab.',
+    tags: ['Python', 'Multi-agent Systems', 'AI', 'Research'],
+  },
+  {
+    title: 'Java Developer Intern',
+    company: 'Siloxane',
+    period: 'May 2018 – Jul 2018',
+    location: 'Lyon, France',
+    description:
+      'Developed a generic web interface for processing medical messages following the HL7 standard. Built a customizable web service to manage patient data.',
+    tags: ['Java', 'HL7', 'Web', 'REST API'],
+  },
+];
+---
+
+<section id="experience" class="experience">
+  <div class="section-label">
+    <h2 data-i18n="exp.label">/ CAREER_HISTORY.LOG</h2>
+    <hr />
+  </div>
+
+  <div class="timeline">
+    {entries.map((entry, index) => (
+      <div class={`entry ${index % 2 === 0 ? 'entry--left' : 'entry--right'}`}>
+        <div class="entry-dot" aria-hidden="true"></div>
+        <div class="entry-card">
+          <h3 class="entry-title" data-i18n={`exp.${index}.title`}>{entry.title}</h3>
+          <p class="entry-company" data-i18n={`exp.${index}.company`}>{entry.company}</p>
+          <p class="entry-meta">
+            <span data-i18n={`exp.${index}.period`}>{entry.period}</span>
+            {' · '}
+            <span data-i18n={`exp.${index}.location`}>{entry.location}</span>
+          </p>
+          <p class="entry-description" data-i18n={`exp.${index}.description`}>{entry.description}</p>
+          <ul class="entry-tags" aria-label="Technologies used">
+            {entry.tags.map((tag) => (
+              <li class="entry-tag">{tag}</li>
+            ))}
+          </ul>
+        </div>
+      </div>
+    ))}
+  </div>
+</section>
+
+<style>
+  .experience {
+    padding: var(--space-12) var(--space-8);
+  }
+
+  @media (max-width: 767px) {
+    .experience {
+      padding: var(--space-8) var(--space-4);
+    }
+  }
+
+  .section-label {
+    display: flex;
+    align-items: center;
+    gap: var(--space-4);
+    margin-bottom: var(--space-6);
+  }
+
+  .section-label h2 {
+    font-family: var(--font-mono);
+    font-size: 1.1rem;
+    font-weight: 600;
+    letter-spacing: 0.08em;
+    color: var(--color-accent);
+    white-space: nowrap;
+    margin: 0;
+  }
+
+  .section-label hr {
+    flex: 1;
+    border: none;
+    border-top: 1px solid var(--color-border);
+  }
+
+  .timeline {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-8);
+  }
+
+  @media (min-width: 768px) {
+    .timeline::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      bottom: 0;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 2px;
+      background: var(--color-border);
+    }
+  }
+
+  @media (max-width: 767px) {
+    .timeline {
+      padding-left: var(--space-8);
+      border-left: 2px solid var(--color-border);
+    }
+  }
+
+  .entry {
+    position: relative;
+    display: flex;
+  }
+
+  .entry--left {
+    justify-content: flex-end;
+  }
+
+  .entry--right {
+    justify-content: flex-start;
+  }
+
+  @media (max-width: 767px) {
+    .entry--left,
+    .entry--right {
+      justify-content: flex-start;
+    }
+  }
+
+  .entry-dot {
+    position: absolute;
+    top: var(--space-6);
+    left: 50%;
+    transform: translateX(-50%);
+    width: 8px;
+    height: 8px;
+    background: var(--color-accent);
+    flex-shrink: 0;
+    z-index: 1;
+  }
+
+  @media (max-width: 767px) {
+    .entry-dot {
+      left: calc(-1 * var(--space-8) - 1px);
+      transform: translateX(-50%);
+    }
+  }
+
+  .entry-card {
+    background: var(--color-surface);
+    border: 1px solid var(--color-border);
+    padding: var(--space-6);
+    width: 100%;
+  }
+
+  @media (min-width: 768px) {
+    .entry-card {
+      width: calc(50% - var(--space-8));
+    }
+  }
+
+  .entry-title {
+    font-family: var(--font-heading);
+    font-size: 1.1rem;
+    font-weight: 600;
+    color: var(--color-accent);
+    margin-bottom: var(--space-1);
+  }
+
+  .entry-company {
+    font-family: var(--font-mono);
+    font-size: 0.85rem;
+    color: var(--color-text);
+    margin-bottom: var(--space-2);
+  }
+
+  .entry-meta {
+    font-family: var(--font-mono);
+    font-size: 0.75rem;
+    color: var(--color-text-muted);
+    margin-bottom: var(--space-4);
+  }
+
+  .entry-description {
+    font-family: var(--font-body);
+    font-size: 0.9rem;
+    color: var(--color-text);
+    line-height: 1.6;
+  }
+
+  .entry-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--space-2);
+    margin-top: var(--space-3);
+    list-style: none;
+  }
+
+  .entry-tag {
+    font-family: var(--font-mono);
+    font-size: 0.7rem;
+    padding: 2px 6px;
+    border: 1px solid var(--color-border);
+    color: var(--color-text-muted);
+  }
+</style>

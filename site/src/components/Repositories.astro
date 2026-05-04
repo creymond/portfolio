@@ -1,0 +1,240 @@
+---
+interface Repo {
+  slug: string;
+  name: string;
+  description: string;
+  html_url: string;
+  language: string;
+  icon: string;
+}
+
+const repos: Repo[] = [
+  {
+    slug: 'darkcastle',
+    name: 'Darkcastle',
+    description: 'A roguelike dungeon-crawler game with procedurally generated levels and turn-based combat.',
+    html_url: 'https://github.com/creymond/Darkcastle',
+    language: 'C++',
+    icon: `<svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+      <path d="M2 20V8h3V5h2V2h2v3h2V2h2v3h2V5h2v3h3v12H2zm2-2h16v-8h-1V8h-2v2h-2V8H9v2H7V8H5v2H4v8zm5-5h6v5H9v-5z"/>
+    </svg>`,
+  },
+  {
+    slug: 'ai-checkers',
+    name: 'AI Checkers',
+    description: 'Checkers game engine with an AI opponent powered by minimax and alpha-beta pruning.',
+    html_url: 'https://github.com/creymond/AI-Checkers',
+    language: 'Python',
+    icon: `<svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+      <path d="M3 3h8v8H3zm10 0h8v8h-8zm0 10h8v8h-8zM3 13h8v8H3zm2-8v4h4V5zm10 0v4h4V5zM5 15v4h4v-4zm10 0v4h4v-4z"/>
+    </svg>`,
+  },
+  {
+    slug: 'ibrg',
+    name: 'IBRG',
+    description: 'Iterated Belief Revision Games — multi-agent system for knowledge representation research.',
+    html_url: 'https://github.com/creymond/IBRG',
+    language: 'Python',
+    icon: `<svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true">
+      <circle cx="12" cy="4"  r="2" fill="currentColor" stroke="none"/>
+      <circle cx="4"  cy="18" r="2" fill="currentColor" stroke="none"/>
+      <circle cx="20" cy="18" r="2" fill="currentColor" stroke="none"/>
+      <circle cx="12" cy="12" r="2" fill="currentColor" stroke="none"/>
+      <line x1="12" y1="6"  x2="12" y2="10"/>
+      <line x1="12" y1="6"  x2="5"  y2="16"/>
+      <line x1="12" y1="6"  x2="19" y2="16"/>
+      <line x1="12" y1="14" x2="5"  y2="16"/>
+      <line x1="12" y1="14" x2="19" y2="16"/>
+    </svg>`,
+  },
+  {
+    slug: 'ant-sort',
+    name: 'Ant Sort Simulation',
+    description: 'Ant colony simulation demonstrating emergent sorting behaviour using stigmergy algorithms.',
+    html_url: 'https://github.com/creymond/Ant-Sort-Simulation',
+    language: 'Python',
+    icon: `<svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+      <ellipse cx="12" cy="6"  rx="2.5" ry="2"/>
+      <ellipse cx="12" cy="11" rx="2"   ry="2.5"/>
+      <ellipse cx="12" cy="17" rx="2.5" ry="2.5"/>
+      <line x1="9.5"  y1="10" x2="5"  y2="8"  stroke="currentColor" stroke-width="1.2" stroke-linecap="round"/>
+      <line x1="9.5"  y1="12" x2="5"  y2="12" stroke="currentColor" stroke-width="1.2" stroke-linecap="round"/>
+      <line x1="9.5"  y1="14" x2="5"  y2="16" stroke="currentColor" stroke-width="1.2" stroke-linecap="round"/>
+      <line x1="14.5" y1="10" x2="19" y2="8"  stroke="currentColor" stroke-width="1.2" stroke-linecap="round"/>
+      <line x1="14.5" y1="12" x2="19" y2="12" stroke="currentColor" stroke-width="1.2" stroke-linecap="round"/>
+      <line x1="14.5" y1="14" x2="19" y2="16" stroke="currentColor" stroke-width="1.2" stroke-linecap="round"/>
+      <line x1="10.5" y1="4.5" x2="8"  y2="2" stroke="currentColor" stroke-width="1.2" stroke-linecap="round"/>
+      <line x1="13.5" y1="4.5" x2="16" y2="2" stroke="currentColor" stroke-width="1.2" stroke-linecap="round"/>
+    </svg>`,
+  },
+];
+---
+
+<section id="repositories" class="repositories">
+  <div class="section-label">
+    <h2 data-i18n="repos.label">/ REPOSITORIES</h2>
+    <hr />
+  </div>
+
+  <div class="repos-grid">
+    {repos.map((repo) => (
+      <article class="repo-card">
+        <div class="card-header">
+          <div class="project-icon" set:html={repo.icon} />
+          <span class="card-title">{repo.name}</span>
+        </div>
+
+        <div class="card-body">
+          <p class="description">{repo.description}</p>
+          <span class="language">{repo.language}</span>
+        </div>
+
+        <div class="card-footer">
+          <a
+            href={repo.html_url}
+            target="_blank"
+            rel="noopener noreferrer"
+            class="view-link"
+          >VIEW &rarr;</a>
+        </div>
+      </article>
+    ))}
+  </div>
+</section>
+
+<style>
+  .repositories {
+    padding: var(--space-12) var(--space-8);
+  }
+
+  @media (max-width: 767px) {
+    .repositories {
+      padding: var(--space-8) var(--space-4);
+    }
+  }
+
+  .section-label {
+    display: flex;
+    align-items: center;
+    gap: var(--space-4);
+    margin-bottom: var(--space-6);
+  }
+
+  .section-label h2 {
+    font-family: var(--font-mono);
+    font-size: 1.1rem;
+    font-weight: 600;
+    letter-spacing: 0.08em;
+    color: var(--color-accent);
+    white-space: nowrap;
+    margin: 0;
+  }
+
+  .section-label hr {
+    flex: 1;
+    border: none;
+    border-top: 1px solid var(--color-border);
+  }
+
+  .repos-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: var(--space-6);
+  }
+
+  @media (min-width: 640px) {
+    .repos-grid {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+
+  @media (min-width: 1024px) {
+    .repos-grid {
+      grid-template-columns: repeat(4, 1fr);
+    }
+  }
+
+  .repo-card {
+    background: var(--color-surface);
+    border: 1px solid var(--color-border);
+    display: flex;
+    flex-direction: column;
+    transition: border-color 0.15s ease;
+  }
+
+  .repo-card:hover {
+    border-color: var(--color-accent);
+  }
+
+  .card-header {
+    border-bottom: 1px solid var(--color-border);
+    padding: var(--space-5) var(--space-4) var(--space-4);
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: var(--space-3);
+  }
+
+  .project-icon {
+    color: var(--color-accent);
+    line-height: 0;
+    opacity: 0.9;
+  }
+
+  .project-icon :global(svg) {
+    display: block;
+  }
+
+  .card-title {
+    font-family: var(--font-mono);
+    font-size: 0.8rem;
+    color: var(--color-text);
+    font-weight: 600;
+  }
+
+  .card-body {
+    flex-grow: 1;
+    padding: var(--space-4);
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-3);
+  }
+
+  .description {
+    font-family: var(--font-body);
+    font-size: 0.85rem;
+    line-height: 1.6;
+    color: var(--color-text-muted);
+  }
+
+  .language {
+    display: inline-block;
+    align-self: flex-start;
+    background: var(--color-surface-high);
+    border: 1px solid var(--color-border);
+    color: var(--color-secondary);
+    font-family: var(--font-mono);
+    font-size: 0.7rem;
+    padding: 2px 6px;
+  }
+
+  .card-footer {
+    border-top: 1px solid var(--color-border);
+    padding: var(--space-3) var(--space-4);
+    display: flex;
+    justify-content: flex-end;
+  }
+
+  .view-link {
+    font-family: var(--font-mono);
+    font-size: 0.7rem;
+    color: var(--color-accent);
+    letter-spacing: 0.05em;
+    text-decoration: none;
+    transition: color 0.15s ease;
+  }
+
+  .view-link:hover {
+    color: var(--color-accent-dim);
+  }
+</style>

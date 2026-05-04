@@ -1,0 +1,514 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>root / portfolio - Cyril Reymond</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&amp;family=Inter:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+          darkMode: "class",
+          theme: {
+            extend: {
+              "colors": {
+                      "on-tertiary-fixed": "#2c1600",
+                      "on-surface-variant": "#bbcbb8",
+                      "on-surface": "#e1e1f1",
+                      "tertiary-container": "#ffd4ab",
+                      "primary-fixed": "#69ff88",
+                      "surface-tint": "#31e368",
+                      "outline-variant": "#3c4a3c",
+                      "on-secondary": "#411478",
+                      "surface": "#11131e",
+                      "secondary-container": "#593090",
+                      "on-error-container": "#ffdad6",
+                      "tertiary-fixed-dim": "#ffb86c",
+                      "on-primary-fixed-variant": "#00531e",
+                      "surface-variant": "#323440",
+                      "surface-container-high": "#272935",
+                      "primary-fixed-dim": "#31e368",
+                      "secondary-fixed-dim": "#d7baff",
+                      "secondary-fixed": "#eddcff",
+                      "on-secondary-container": "#caa4ff",
+                      "surface-bright": "#373845",
+                      "on-primary-container": "#00702c",
+                      "surface-container-highest": "#323440",
+                      "on-tertiary": "#492900",
+                      "primary": "#e8ffe4",
+                      "on-secondary-fixed-variant": "#593090",
+                      "on-error": "#690005",
+                      "on-background": "#e1e1f1",
+                      "inverse-surface": "#e1e1f1",
+                      "on-tertiary-container": "#89540f",
+                      "surface-dim": "#11131e",
+                      "tertiary": "#fff7f2",
+                      "inverse-on-surface": "#2e303c",
+                      "on-tertiary-fixed-variant": "#683c00",
+                      "background": "#11131e",
+                      "on-primary-fixed": "#002108",
+                      "secondary": "#d7baff",
+                      "primary-container": "#50fa7b",
+                      "tertiary-fixed": "#ffdcbc",
+                      "outline": "#859583",
+                      "error": "#ffb4ab",
+                      "surface-container-lowest": "#0b0e18",
+                      "on-secondary-fixed": "#290055",
+                      "surface-container-low": "#191b26",
+                      "inverse-primary": "#006e2b",
+                      "surface-container": "#1d1f2b",
+                      "on-primary": "#003912",
+                      "error-container": "#93000a"
+              },
+              "borderRadius": {
+                      "DEFAULT": "0.25rem",
+                      "lg": "0.5rem",
+                      "xl": "0.75rem",
+                      "full": "9999px"
+              },
+              "spacing": {
+                      "xl": "48px",
+                      "lg": "24px",
+                      "gutter": "16px",
+                      "margin-safe": "32px",
+                      "xs": "4px",
+                      "unit": "4px",
+                      "md": "16px",
+                      "sm": "8px"
+              },
+              "fontFamily": {
+                      "headline-md": ["Space Grotesk"],
+                      "label-sm": ["Space Grotesk"],
+                      "code-md": ["monospace"],
+                      "body-lg": ["Inter"],
+                      "headline-lg": ["Space Grotesk"],
+                      "body-md": ["Inter"],
+                      "headline-sm": ["Space Grotesk"]
+              },
+              "fontSize": {
+                      "headline-md": ["32px", {"lineHeight": "1.2", "letterSpacing": "-0.01em", "fontWeight": "600"}],
+                      "label-sm": ["12px", {"lineHeight": "1", "letterSpacing": "0.05em", "fontWeight": "600"}],
+                      "code-md": ["14px", {"lineHeight": "1.5", "letterSpacing": "0", "fontWeight": "400"}],
+                      "body-lg": ["18px", {"lineHeight": "1.6", "letterSpacing": "0", "fontWeight": "400"}],
+                      "headline-lg": ["48px", {"lineHeight": "1.1", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+                      "body-md": ["16px", {"lineHeight": "1.5", "letterSpacing": "0", "fontWeight": "400"}],
+                      "headline-sm": ["24px", {"lineHeight": "1.2", "letterSpacing": "0", "fontWeight": "600"}]
+              }
+            },
+          },
+        }
+    </script>
+<style>
+        .blink { animation: blinker 1s step-start infinite; }
+        @keyframes blinker { 50% { opacity: 0; } }
+        .terminal-header { background: #323440; border-bottom: 1px solid #3c4a3c; }
+        .terminal-dot { width: 12px; height: 12px; border-radius: 50%; }
+        .code-bg { background: repeating-linear-gradient(0deg, rgba(80, 250, 123, 0.03) 0px, rgba(80, 250, 123, 0.03) 1px, transparent 1px, transparent 2px); background-size: 100% 4px; }
+        ::-webkit-scrollbar { width: 6px; }
+        ::-webkit-scrollbar-track { background: #11131e; }
+        ::-webkit-scrollbar-thumb { background: #3c4a3c; }
+        ::-webkit-scrollbar-thumb:hover { background: #50fa7b; }
+    </style>
+</head>
+<body class="bg-background text-on-surface font-body-md selection:bg-primary-container selection:text-on-primary">
+<!-- Persistent Left Sidebar Navigation -->
+<nav class="fixed top-0 left-0 h-full w-64 z-50 flex flex-col bg-slate-950 border-r-2 border-slate-800">
+<div class="p-6 border-b border-slate-800">
+<div class="text-[#50FA7B] font-mono font-bold text-lg mb-1">
+            root / portfolio
+        </div>
+<div class="text-on-surface-variant font-code-md text-[10px] uppercase tracking-tighter opacity-50">
+            System v4.2.0-stable
+        </div>
+</div>
+<div class="flex-grow py-8 flex flex-col gap-2">
+<div class="px-4 mb-4">
+<span class="text-xs font-code-md text-slate-500 uppercase tracking-widest">SYSTEM_ROOT</span>
+</div>
+<a class="group flex items-center gap-3 px-6 py-3 text-slate-500 hover:text-primary-container hover:bg-slate-900 transition-all font-['Space_Grotesk'] uppercase tracking-widest text-base" href="#hero">
+<span class="material-symbols-outlined text-lg">home</span>
+<span>root</span>
+</a>
+<a class="group flex items-center gap-3 px-6 py-3 text-slate-500 hover:text-primary-container hover:bg-slate-900 transition-all font-['Space_Grotesk'] uppercase tracking-widest text-base" href="#about">
+<span class="material-symbols-outlined text-lg">person</span>
+<span>about</span>
+</a>
+<a class="group flex items-center gap-3 px-6 py-3 text-slate-500 hover:text-primary-container hover:bg-slate-900 transition-all font-['Space_Grotesk'] uppercase tracking-widest text-base" href="#projects">
+<span class="material-symbols-outlined text-lg">code</span>
+<span>projects</span>
+</a>
+<a class="group flex items-center gap-3 px-6 py-3 text-slate-500 hover:text-primary-container hover:bg-slate-900 transition-all font-['Space_Grotesk'] uppercase tracking-widest text-base" href="#stack">
+<span class="material-symbols-outlined text-lg">terminal</span>
+<span>stack</span>
+</a>
+<a class="group flex items-center gap-3 px-6 py-3 text-slate-500 hover:text-primary-container hover:bg-slate-900 transition-all font-['Space_Grotesk'] uppercase tracking-widest text-base" href="#experience">
+<span class="material-symbols-outlined text-lg">work</span>
+<span>experience</span>
+</a>
+<a class="group flex items-center gap-3 px-6 py-3 text-slate-500 hover:text-primary-container hover:bg-slate-900 transition-all font-['Space_Grotesk'] uppercase tracking-widest text-base" href="#contact">
+<span class="material-symbols-outlined text-lg">mail</span>
+<span>contact</span>
+</a>
+</div>
+<div class="p-6 border-t border-slate-800">
+<a class="block w-full bg-primary-container/10 text-primary-container px-4 py-3 font-['Space_Grotesk'] font-bold text-[10px] uppercase tracking-widest border border-primary-container/30 hover:bg-primary-container hover:text-on-primary transition-all text-center" href="#">
+            RESUME.pdf
+        </a>
+<div class="mt-4 flex justify-between items-center px-1">
+<div class="flex gap-2">
+<div class="w-2 h-2 rounded-full bg-green-500 animate-pulse"></div>
+<span class="text-[10px] font-code-md text-slate-500">LIVE_SYNC</span>
+</div>
+<span class="text-[10px] font-code-md text-slate-500">80:443</span>
+</div>
+</div>
+</nav>
+<main class="ml-64 pt-12 px-12 max-w-6xl mx-auto space-y-32 mb-32">
+<!-- Hero Section -->
+<section class="relative" id="hero">
+<div class="border-2 border-outline-variant rounded-lg overflow-hidden bg-surface-container shadow-2xl">
+<div class="terminal-header px-4 py-2 flex items-center justify-between">
+<div class="flex gap-2">
+<div class="terminal-dot bg-red-500"></div>
+<div class="terminal-dot bg-yellow-500"></div>
+<div class="terminal-dot bg-green-500"></div>
+</div>
+<div class="text-on-surface-variant font-code-md text-xs">cyril_reymond --bash</div>
+<div class="w-12"></div>
+</div>
+<div class="p-12 code-bg">
+<div class="flex flex-col gap-6">
+<div class="flex items-center gap-4 font-code-md text-primary-container">
+<span>$</span>
+<h1 class="text-headline-lg font-headline-lg uppercase">Cyril Reymond</h1>
+</div>
+<div class="pl-8 border-l-2 border-primary-container/20">
+<p class="text-headline-sm font-headline-sm text-secondary tracking-tight">DevOps Engineer / SRE Engineer @ THALES</p>
+<p class="mt-4 text-on-surface-variant max-w-2xl font-body-lg">Specializing in high-availability kubernetes clusters, automated CI/CD pipelines, and infrastructure as code at global scale.</p>
+</div>
+<div class="flex items-center gap-6 mt-8 pl-8">
+<button class="bg-primary-container text-on-primary font-code-md px-8 py-4 border-2 border-primary-container hover:bg-transparent hover:text-primary-container transition-all flex items-center gap-2">
+<span class="material-symbols-outlined">play_arrow</span> Run Projects.sh
+                        </button>
+<div class="flex gap-4">
+<a class="text-on-surface-variant hover:text-primary-container transition-colors" href="#">
+<svg class="w-8 h-8 fill-current" role="img" viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.43.372.82 1.102.82 2.222 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12"></path></svg>
+</a>
+<a class="text-on-surface-variant hover:text-secondary transition-colors" href="#">
+<svg class="w-8 h-8 fill-current" role="img" viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451c.981 0 1.775-.773 1.775-1.729V1.729C24 .774 23.207 0 22.225 0z"></path></svg>
+</a>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- About Me Section -->
+<section class="grid grid-cols-12 gap-8 items-start" id="about">
+<div class="col-span-5 relative group">
+<div class="absolute -top-4 -left-4 w-full h-full border-2 border-primary-container z-0"></div>
+<div class="relative z-10 border-2 border-outline-variant bg-surface-container aspect-square grayscale hover:grayscale-0 transition-all duration-500 overflow-hidden">
+<img alt="Cyril Reymond Profile" class="w-full h-full object-cover" data-alt="Close-up portrait of a professional man with short hair and glasses in a moody tech environment with blue and green ambient lighting" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDpvDx41paS8F_Oe7qQLjPmtW_kJovL4byshXEX2BflVj_4uoM7WyEbfmK5BM6r0RHh_wGNCbftXmyHsW8DWGl_UlFy91lMsymgb4m5Fk_M4pwCojFc61uTGI9fgAzVz6NOpG_GNhJMWRPkGIE8rhh1AoGFFfWXH8pchUb89CkbTDijqLWWSMlZQHjCYYmB3nYpkXCNrtvWgYo0GNy9sE_6KcNmEMMh8j8AC8UQX0Y6J0EXfJMeX002LufZyQvjn6nn2AGkebOmet3l"/>
+</div>
+</div>
+<div class="col-span-7 space-y-8">
+<div class="border-l-4 border-primary-container pl-6">
+<h2 class="text-headline-md font-headline-md text-primary-container uppercase tracking-widest mb-4">system.bio</h2>
+<p class="text-body-lg font-body-lg leading-relaxed text-on-surface-variant">
+                    Engineering digital resilience since 2014. My journey began in the trenches of monolithic migrations and evolved into leading cloud-native transformations for Fortune 500 companies. I view infrastructure not as a utility, but as a software product that demands the same rigor, testing, and lifecycle management as application code.
+                </p>
+</div>
+<div class="border border-outline-variant bg-surface-container-low p-6 font-code-md shadow-lg">
+<div class="flex justify-between items-center mb-4 border-b border-outline-variant pb-2">
+<span class="text-secondary text-xs uppercase">system_stats.json</span>
+<span class="text-on-surface-variant text-xs">UTF-8</span>
+</div>
+<div class="text-primary-container leading-relaxed">
+<span class="text-on-surface-variant">{</span><br/>
+                      <span class="text-secondary">"experience"</span>: <span class="text-on-surface">"10y_plus"</span>,<br/>
+                      <span class="text-secondary">"status"</span>: <span class="text-primary-container">"AVAILABLE"</span>,<br/>
+                      <span class="text-secondary">"specialization"</span>: <span class="text-on-surface">"DevOps_Architect"</span>,<br/>
+                      <span class="text-secondary">"os_affinity"</span>: [<span class="text-on-surface">"Linux"</span>, <span class="text-on-surface">"Unix"</span>],<br/>
+                      <span class="text-secondary">"location"</span>: <span class="text-on-surface">"Remote/Cloud"</span><br/>
+<span class="text-on-surface-variant">}</span><span class="blink">_</span>
+</div>
+</div>
+</div>
+</section>
+<!-- GitHub Projects Section -->
+<section class="space-y-8" id="projects">
+<div class="flex items-center gap-4">
+<h2 class="text-headline-md font-headline-md text-primary-container uppercase tracking-tighter">/ repositories</h2>
+<div class="flex-grow h-px bg-outline-variant"></div>
+</div>
+<div class="grid grid-cols-1 lg:grid-cols-3 gap-6">
+<!-- Card 1 -->
+<div class="border border-outline-variant bg-surface-container-low p-6 flex flex-col justify-between hover:border-primary-container transition-colors group">
+<div>
+<div class="flex justify-between items-start mb-4">
+<span class="material-symbols-outlined text-secondary">folder_zip</span>
+<span class="text-xs font-code-md text-on-surface-variant">v2.4.0</span>
+</div>
+<h3 class="text-headline-sm font-headline-sm text-on-surface mb-2 group-hover:text-primary-container transition-colors">kube-auto-scale-pro</h3>
+<p class="text-on-surface-variant text-sm mb-4">Advanced horizontal pod autoscaler with predictive analysis using Prometheus metrics.</p>
+<div class="flex gap-2 flex-wrap mb-6">
+<span class="px-2 py-1 bg-surface-container-high border border-outline-variant text-[10px] font-code-md">K8s</span>
+<span class="px-2 py-1 bg-surface-container-high border border-outline-variant text-[10px] font-code-md">Golang</span>
+<span class="px-2 py-1 bg-surface-container-high border border-outline-variant text-[10px] font-code-md">PromQL</span>
+</div>
+</div>
+<div class="bg-surface-container-highest p-3 font-code-md text-xs border border-outline-variant">
+<span class="text-primary-container">$</span> git clone reymond/kube-auto
+                </div>
+</div>
+<!-- Card 2 -->
+<div class="border border-outline-variant bg-surface-container-low p-6 flex flex-col justify-between hover:border-primary-container transition-colors group">
+<div>
+<div class="flex justify-between items-start mb-4">
+<span class="material-symbols-outlined text-secondary">terminal</span>
+<span class="text-xs font-code-md text-on-surface-variant">v1.1.2</span>
+</div>
+<h3 class="text-headline-sm font-headline-sm text-on-surface mb-2 group-hover:text-primary-container transition-colors">terraform-aws-hardened</h3>
+<p class="text-on-surface-variant text-sm mb-4">Production-ready modules for AWS Landing Zones with automated compliance checks.</p>
+<div class="flex gap-2 flex-wrap mb-6">
+<span class="px-2 py-1 bg-surface-container-high border border-outline-variant text-[10px] font-code-md">HCL</span>
+<span class="px-2 py-1 bg-surface-container-high border border-outline-variant text-[10px] font-code-md">AWS</span>
+<span class="px-2 py-1 bg-surface-container-high border border-outline-variant text-[10px] font-code-md">Terragrunt</span>
+</div>
+</div>
+<div class="bg-surface-container-highest p-3 font-code-md text-xs border border-outline-variant">
+<span class="text-primary-container">$</span> git clone reymond/aws-infra
+                </div>
+</div>
+<!-- Card 3 -->
+<div class="border border-outline-variant bg-surface-container-low p-6 flex flex-col justify-between hover:border-primary-container transition-colors group">
+<div>
+<div class="flex justify-between items-start mb-4">
+<span class="material-symbols-outlined text-secondary">monitoring</span>
+<span class="text-xs font-code-md text-on-surface-variant">v0.9.1</span>
+</div>
+<h3 class="text-headline-sm font-headline-sm text-on-surface mb-2 group-hover:text-primary-container transition-colors">observability-stack-one</h3>
+<p class="text-on-surface-variant text-sm mb-4">Unified dashboarding for Grafana and Loki with pre-configured SRE alerts.</p>
+<div class="flex gap-2 flex-wrap mb-6">
+<span class="px-2 py-1 bg-surface-container-high border border-outline-variant text-[10px] font-code-md">Grafana</span>
+<span class="px-2 py-1 bg-surface-container-high border border-outline-variant text-[10px] font-code-md">Loki</span>
+<span class="px-2 py-1 bg-surface-container-high border border-outline-variant text-[10px] font-code-md">SRE</span>
+</div>
+</div>
+<div class="bg-surface-container-highest p-3 font-code-md text-xs border border-outline-variant">
+<span class="text-primary-container">$</span> git clone reymond/obs-stack
+                </div>
+</div>
+</div>
+</section>
+<!-- Tech Stack Section -->
+<section class="space-y-12" id="stack">
+<div class="flex items-center gap-4">
+<h2 class="text-headline-md font-headline-md text-primary-container uppercase tracking-widest">tech.stack</h2>
+<div class="flex-grow h-px bg-outline-variant"></div>
+</div>
+<div class="space-y-12">
+<!-- Cloud & Core -->
+<div class="space-y-4">
+<h3 class="font-code-md text-secondary text-sm flex items-center gap-2 uppercase tracking-widest">
+<span class="material-symbols-outlined text-sm">cloud_queue</span> Cloud &amp; Core
+            </h3>
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
+<div class="p-3 border border-outline-variant bg-surface-container flex flex-col gap-2">
+<div class="flex justify-between items-center text-xs font-code-md text-on-surface-variant">
+<div class="flex items-center gap-2"><span class="material-symbols-outlined text-xs text-primary-container">dns</span> AWS / GCP / Azure</div>
+<span>95%</span>
+</div>
+<div class="h-1 bg-surface-container-highest w-full"><div class="h-full bg-primary-container w-[95%]"></div></div>
+</div>
+<div class="p-3 border border-outline-variant bg-surface-container flex flex-col gap-2">
+<div class="flex justify-between items-center text-xs font-code-md text-on-surface-variant">
+<div class="flex items-center gap-2"><span class="material-symbols-outlined text-xs text-primary-container">hub</span> Kubernetes</div>
+<span>92%</span>
+</div>
+<div class="h-1 bg-surface-container-highest w-full"><div class="h-full bg-primary-container w-[92%]"></div></div>
+</div>
+<div class="p-3 border border-outline-variant bg-surface-container flex flex-col gap-2">
+<div class="flex justify-between items-center text-xs font-code-md text-on-surface-variant">
+<div class="flex items-center gap-2"><span class="material-symbols-outlined text-xs text-primary-container">memory</span> Docker</div>
+<span>98%</span>
+</div>
+<div class="h-1 bg-surface-container-highest w-full"><div class="h-full bg-primary-container w-[98%]"></div></div>
+</div>
+<div class="p-3 border border-outline-variant bg-surface-container flex flex-col gap-2">
+<div class="flex justify-between items-center text-xs font-code-md text-on-surface-variant">
+<div class="flex items-center gap-2"><span class="material-symbols-outlined text-xs text-primary-container">terminal</span> Linux (Debian/RHEL)</div>
+<span>94%</span>
+</div>
+<div class="h-1 bg-surface-container-highest w-full"><div class="h-full bg-primary-container w-[94%]"></div></div>
+</div>
+</div>
+</div>
+<!-- Automation -->
+<div class="space-y-4">
+<h3 class="font-code-md text-secondary text-sm flex items-center gap-2 uppercase tracking-widest">
+<span class="material-symbols-outlined text-sm">precision_manufacturing</span> Automation
+            </h3>
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
+<div class="p-3 border border-outline-variant bg-surface-container flex flex-col gap-2">
+<div class="flex justify-between items-center text-xs font-code-md text-on-surface-variant">
+<div class="flex items-center gap-2"><span class="material-symbols-outlined text-xs text-primary-container">layers</span> Terraform</div>
+<span>96%</span>
+</div>
+<div class="h-1 bg-surface-container-highest w-full"><div class="h-full bg-primary-container w-[96%]"></div></div>
+</div>
+<div class="p-3 border border-outline-variant bg-surface-container flex flex-col gap-2">
+<div class="flex justify-between items-center text-xs font-code-md text-on-surface-variant">
+<div class="flex items-center gap-2"><span class="material-symbols-outlined text-xs text-primary-container">settings</span> Ansible / Salt</div>
+<span>85%</span>
+</div>
+<div class="h-1 bg-surface-container-highest w-full"><div class="h-full bg-primary-container w-[85%]"></div></div>
+</div>
+<div class="p-3 border border-outline-variant bg-surface-container flex flex-col gap-2">
+<div class="flex justify-between items-center text-xs font-code-md text-on-surface-variant">
+<div class="flex items-center gap-2"><span class="material-symbols-outlined text-xs text-primary-container">account_tree</span> GitHub Actions</div>
+<span>90%</span>
+</div>
+<div class="h-1 bg-surface-container-highest w-full"><div class="h-full bg-primary-container w-[90%]"></div></div>
+</div>
+<div class="p-3 border border-outline-variant bg-surface-container flex flex-col gap-2">
+<div class="flex justify-between items-center text-xs font-code-md text-on-surface-variant">
+<div class="flex items-center gap-2"><span class="material-symbols-outlined text-xs text-primary-container">view_in_ar</span> ArgoCD / Helm</div>
+<span>88%</span>
+</div>
+<div class="h-1 bg-surface-container-highest w-full"><div class="h-full bg-primary-container w-[88%]"></div></div>
+</div>
+</div>
+</div>
+<!-- Observability -->
+<div class="space-y-4">
+<h3 class="font-code-md text-secondary text-sm flex items-center gap-2 uppercase tracking-widest">
+<span class="material-symbols-outlined text-sm">visibility</span> Observability
+            </h3>
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
+<div class="p-3 border border-outline-variant bg-surface-container flex flex-col gap-2">
+<div class="flex justify-between items-center text-xs font-code-md text-on-surface-variant">
+<div class="flex items-center gap-2"><span class="material-symbols-outlined text-xs text-primary-container">monitoring</span> Prometheus</div>
+<span>94%</span>
+</div>
+<div class="h-1 bg-surface-container-highest w-full"><div class="h-full bg-primary-container w-[94%]"></div></div>
+</div>
+<div class="p-3 border border-outline-variant bg-surface-container flex flex-col gap-2">
+<div class="flex justify-between items-center text-xs font-code-md text-on-surface-variant">
+<div class="flex items-center gap-2"><span class="material-symbols-outlined text-xs text-primary-container">dashboard</span> Grafana</div>
+<span>92%</span>
+</div>
+<div class="h-1 bg-surface-container-highest w-full"><div class="h-full bg-primary-container w-[92%]"></div></div>
+</div>
+<div class="p-3 border border-outline-variant bg-surface-container flex flex-col gap-2">
+<div class="flex justify-between items-center text-xs font-code-md text-on-surface-variant">
+<div class="flex items-center gap-2"><span class="material-symbols-outlined text-xs text-primary-container">search</span> ELK Stack</div>
+<span>85%</span>
+</div>
+<div class="h-1 bg-surface-container-highest w-full"><div class="h-full bg-primary-container w-[85%]"></div></div>
+</div>
+<div class="p-3 border border-outline-variant bg-surface-container flex flex-col gap-2">
+<div class="flex justify-between items-center text-xs font-code-md text-on-surface-variant">
+<div class="flex items-center gap-2"><span class="material-symbols-outlined text-xs text-primary-container">insights</span> OpenTelemetry</div>
+<span>80%</span>
+</div>
+<div class="h-1 bg-surface-container-highest w-full"><div class="h-full bg-primary-container w-[80%]"></div></div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Experience Section -->
+<section class="space-y-12" id="experience">
+<h2 class="text-headline-md font-headline-md text-primary-container uppercase tracking-widest text-center">career_history.log</h2>
+<div class="relative space-y-0">
+<div class="absolute left-1/2 transform -translate-x-1/2 w-0.5 h-full bg-outline-variant"></div>
+<!-- Entry 1 -->
+<div class="relative flex items-center justify-between group">
+<div class="w-5/12 text-right pr-12">
+<div class="font-code-md text-secondary text-sm mb-2">2021-PRESENT</div>
+<h4 class="text-headline-sm font-headline-sm text-on-surface">Senior DevOps Architect</h4>
+<p class="text-primary-container font-code-md text-xs mb-4">THALES</p>
+<p class="text-on-surface-variant text-sm">Orchestrating migration of multi-region service meshes for enterprise clients using Istio and GKE.</p>
+</div>
+<div class="absolute left-1/2 transform -translate-x-1/2 w-4 h-4 bg-primary-container border-4 border-surface shadow-[0_0_15px_rgba(80,250,123,0.5)] z-10"></div>
+<div class="w-5/12 pl-12"></div>
+</div>
+<!-- Entry 2 -->
+<div class="relative flex items-center justify-between group pt-16">
+<div class="w-5/12 text-right pr-12"></div>
+<div class="absolute left-1/2 transform -translate-x-1/2 w-4 h-4 bg-outline-variant border-4 border-surface z-10"></div>
+<div class="w-5/12 pl-12">
+<div class="font-code-md text-secondary text-sm mb-2">2018-2021</div>
+<h4 class="text-headline-sm font-headline-sm text-on-surface">Cloud Engineer</h4>
+<p class="text-primary-container font-code-md text-xs mb-4">Datadog</p>
+<p class="text-on-surface-variant text-sm">Optimized telemetry collection pipelines, reducing latency by 35% through Rust-based sidecars.</p>
+</div>
+</div>
+<!-- Entry 3 -->
+<div class="relative flex items-center justify-between group pt-16">
+<div class="w-5/12 text-right pr-12">
+<div class="font-code-md text-secondary text-sm mb-2">2015-2018</div>
+<h4 class="text-headline-sm font-headline-sm text-on-surface">Systems Administrator</h4>
+<p class="text-primary-container font-code-md text-xs mb-4">DigitalOcean</p>
+<p class="text-on-surface-variant text-sm">Maintained core infrastructure services and automated hypervisor patching cycles.</p>
+</div>
+<div class="absolute left-1/2 transform -translate-x-1/2 w-4 h-4 bg-outline-variant border-4 border-surface z-10"></div>
+<div class="w-5/12 pl-12"></div>
+</div>
+</div>
+</section>
+<!-- Contact Section -->
+<section class="max-w-3xl mx-auto border-2 border-outline-variant bg-surface-container p-8 shadow-2xl" id="contact">
+<div class="flex items-center gap-3 mb-8 border-b border-outline-variant pb-4">
+<span class="material-symbols-outlined text-primary-container">terminal</span>
+<h2 class="text-headline-sm font-headline-sm text-on-surface">ssh contact@server.io</h2>
+</div>
+<form class="space-y-6">
+<div class="space-y-1">
+<label class="font-code-md text-xs text-secondary uppercase">root@cyril_reymond:~$ input name</label>
+<div class="flex items-center gap-2 border border-outline-variant bg-background p-3 focus-within:border-primary-container transition-colors">
+<span class="text-primary-container font-mono">&gt;</span>
+<input class="bg-transparent border-none focus:ring-0 text-on-surface font-code-md w-full" placeholder="IDENTIFY_YOURSELF" type="text"/>
+</div>
+</div>
+<div class="space-y-1">
+<label class="font-code-md text-xs text-secondary uppercase">root@cyril_reymond:~$ input email</label>
+<div class="flex items-center gap-2 border border-outline-variant bg-background p-3 focus-within:border-primary-container transition-colors">
+<span class="text-primary-container font-mono">&gt;</span>
+<input class="bg-transparent border-none focus:ring-0 text-on-surface font-code-md w-full" placeholder="PROTOCOL://EMAIL_ADDRESS" type="email"/>
+</div>
+</div>
+<div class="space-y-1">
+<label class="font-code-md text-xs text-secondary uppercase">root@cyril_reymond:~$ input message</label>
+<div class="flex items-start gap-2 border border-outline-variant bg-background p-3 focus-within:border-primary-container transition-colors">
+<span class="text-primary-container font-mono mt-1">&gt;</span>
+<textarea class="bg-transparent border-none focus:ring-0 text-on-surface font-code-md w-full" placeholder="TRANSMIT_DATA_HERE..." rows="4"></textarea>
+</div>
+</div>
+<button class="w-full bg-primary-container text-on-primary font-code-md py-4 border-2 border-primary-container hover:bg-transparent hover:text-primary-container transition-all flex items-center justify-center gap-2 uppercase tracking-widest font-bold" type="submit">
+<span class="material-symbols-outlined">send</span> Send Transmission
+            </button>
+</form>
+</section>
+</main>
+<!-- Footer Content in Main Flow (optional, adjusted for sidebar) -->
+<footer class="ml-64 w-[calc(100%-256px)] py-6 px-12 flex justify-between items-center border-t border-slate-800 bg-slate-950">
+<div class="font-mono text-[10px] uppercase text-[#50FA7B]">
+        SYSTEM_READY: Compiled with 0 errors. (c) 2024
+    </div>
+<div class="flex gap-8 font-mono text-[10px] uppercase">
+<a class="text-slate-600 hover:text-[#50FA7B] transition-colors flex items-center gap-2" href="#">
+<span class="material-symbols-outlined text-[12px]">code</span> source_code
+        </a>
+<a class="text-slate-600 hover:text-[#50FA7B] transition-colors flex items-center gap-2" href="#">
+<span class="material-symbols-outlined text-[12px]">terminal</span> logs
+        </a>
+</div>
+</footer>
+<!-- Back to Top FAB -->
+<a class="fixed bottom-8 right-8 w-12 h-12 bg-primary-container text-on-primary flex items-center justify-center border-2 border-primary-container hover:bg-transparent hover:text-primary-container transition-all shadow-lg z-50" href="#hero">
+<span class="material-symbols-outlined">expand_less</span>
+</a>
+</body></html>

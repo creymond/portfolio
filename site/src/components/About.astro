@@ -1,0 +1,181 @@
+---
+---
+
+<section id="about" class="about">
+  <div class="section-label">
+    <h2 data-i18n="about.label">/ SYSTEM.BIO</h2>
+    <hr />
+  </div>
+
+  <div class="bio-col">
+      <p class="bio-text" data-i18n="about.bio">
+        Engineering digital resilience since 2014. My journey began in the trenches of monolithic migrations and evolved into leading cloud-native transformations for enterprise clients. I don't just see infrastructure as a utility, but as a software product that demands the same rigor, testing, and lifecycle management as application code.
+      </p>
+
+      <div class="terminal">
+        <div class="terminal-chrome">
+          <div class="dot dot-red"></div>
+          <div class="dot dot-yellow"></div>
+          <div class="dot dot-green"></div>
+          <span class="terminal-label">cyril@portfolio:~$</span>
+        </div>
+        <div class="terminal-divider"></div>
+
+        <div class="terminal-body">
+          <div class="terminal-line">
+            <span class="prompt">$</span>
+            <span class="cmd"> whoami</span>
+          </div>
+          <div class="terminal-line indent">
+            <span class="muted">cyril_reymond</span>
+          </div>
+
+          <div class="terminal-spacer"></div>
+
+          <div class="terminal-line">
+            <span class="prompt">$</span>
+            <span class="cmd"> cat skills.json</span>
+          </div>
+          <div class="terminal-line indent">
+            <span class="muted">{"{"}</span>
+          </div>
+          <div class="terminal-line indent2">
+            <span class="key">"role"</span><span class="muted">: </span><span class="val" data-i18n="about.terminal.role">"SRE / DevOps Engineer"</span><span class="muted">,</span>
+          </div>
+          <div class="terminal-line indent2">
+            <span class="key">"focus"</span><span class="muted">: </span><span class="muted">[</span><span class="val" data-i18n="about.terminal.focus1">"reliability"</span><span class="muted">, </span><span class="val" data-i18n="about.terminal.focus2">"automation"</span><span class="muted">, </span><span class="val" data-i18n="about.terminal.focus3">"IaC"</span><span class="muted">],</span>
+          </div>
+          <div class="terminal-line indent2">
+            <span class="key">"location"</span><span class="muted">: </span><span class="val" data-i18n="about.terminal.location">"Lyon, France → Tokyo, Japan"</span>
+          </div>
+          <div class="terminal-line indent">
+            <span class="muted">{"}"}</span>
+          </div>
+
+          <div class="terminal-spacer"></div>
+
+          <div class="terminal-line">
+            <span class="prompt">$</span>
+            <span class="cmd"> uptime</span>
+          </div>
+          <div class="terminal-line indent">
+            <span class="muted" data-i18n="about.terminal.uptime">4+ years production SRE experience</span>
+          </div>
+        </div>
+      </div>
+  </div>
+</section>
+
+<style>
+  .about {
+    padding: var(--space-12) var(--space-8);
+  }
+
+  @media (max-width: 767px) {
+    .about {
+      padding: var(--space-8) var(--space-4);
+    }
+  }
+
+  .section-label {
+    display: flex;
+    align-items: center;
+    gap: var(--space-4);
+    margin-bottom: var(--space-6);
+  }
+
+  .section-label h2 {
+    font-family: var(--font-mono);
+    font-size: 1.1rem;
+    font-weight: 600;
+    letter-spacing: 0.08em;
+    color: var(--color-accent);
+    white-space: nowrap;
+    margin: 0;
+  }
+
+  .section-label hr {
+    flex: 1;
+    border: none;
+    border-top: 1px solid var(--color-border);
+  }
+
+  .bio-col {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: var(--space-8);
+  }
+
+  @media (min-width: 768px) {
+    .bio-col {
+      grid-template-columns: 1fr 1fr;
+      align-items: start;
+    }
+  }
+
+  .bio-text {
+    font-family: var(--font-body);
+    font-size: 1rem;
+    line-height: 1.7;
+    color: var(--color-text-muted);
+  }
+
+  .terminal {
+    background: var(--color-surface);
+    border: 1px solid var(--color-border);
+  }
+
+  .terminal-chrome {
+    display: flex;
+    align-items: center;
+    gap: var(--space-2);
+    padding: var(--space-3) var(--space-4);
+  }
+
+  .dot {
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    flex-shrink: 0;
+  }
+
+  .dot-red    { background: #ff5f57; }
+  .dot-yellow { background: #ffbd2e; }
+  .dot-green  { background: #28ca41; }
+
+  .terminal-label {
+    font-family: var(--font-mono);
+    font-size: 0.75rem;
+    color: var(--color-text-muted);
+    margin-left: var(--space-2);
+  }
+
+  .terminal-divider {
+    border-top: 1px solid var(--color-border);
+  }
+
+  .terminal-body {
+    padding: var(--space-4) var(--space-6);
+    font-family: var(--font-mono);
+    font-size: 0.8125rem;
+    line-height: 1.6;
+  }
+
+  .terminal-line {
+    display: flex;
+    flex-wrap: wrap;
+  }
+
+  .terminal-spacer {
+    height: var(--space-3);
+  }
+
+  .indent  { padding-left: var(--space-4); }
+  .indent2 { padding-left: var(--space-8); }
+
+  .prompt { color: var(--color-accent); }
+  .cmd    { color: var(--color-text); }
+  .muted  { color: var(--color-text-muted); }
+  .key    { color: var(--color-secondary); }
+  .val    { color: var(--color-tertiary); }
+</style>
